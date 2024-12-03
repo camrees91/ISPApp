@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/programsFragment">
+
+    <fragment
+        android:id="@+id/programsFragment"
+        android:name="com.college.app.ui.programs.ProgramsFragment"
+        android:label="Programs">
+        <action
+            android:id="@+id/action_programs_to_courses"
+            app:destination="@id/coursesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/coursesFragment"
+        android:name="com.college.app.ui.programs.CoursesFragment"
+        android:label="Courses">
+        <argument
+            android:name="programId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.college.app.ui.schedule.ScheduleFragment"
+        android:label="Schedule" />
+
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.college.app.ui.calendar.CalendarFragment"
+        android:label="Calendar" />
+
+    <fragment
+        android:id="@+id/transitFragment"
+        android:name="com.college.app.ui.transit.TransitFragment"
+        android:label="Transit" />
+
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.college.app.ui.news.NewsFragment"
+        android:label="News" />
+
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="com.college.app.ui.contacts.ContactsFragment"
+        android:label="Contacts" />
+
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.college.app.ui.info.InfoFragment"
+        android:label="Info" />
+</navigation> 
