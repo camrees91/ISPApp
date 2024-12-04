@@ -13,11 +13,9 @@ import java.util.List;
 public class ProgramsAdapter extends RecyclerView.Adapter<ProgramsAdapter.ProgramViewHolder> {
 
     private final List<Program> programs;
-    private final OnProgramClickListener listener;
 
-    public ProgramsAdapter(List<Program> programs, OnProgramClickListener listener) {
+    public ProgramsAdapter(List<Program> programs) {
         this.programs = programs;
-        this.listener = listener;
     }
 
     @NonNull
@@ -31,16 +29,11 @@ public class ProgramsAdapter extends RecyclerView.Adapter<ProgramsAdapter.Progra
     public void onBindViewHolder(@NonNull ProgramViewHolder holder, int position) {
         Program program = programs.get(position);
         holder.programName.setText(program.getName());
-        holder.itemView.setOnClickListener(v -> listener.onProgramClick(program));
     }
 
     @Override
     public int getItemCount() {
         return programs.size();
-    }
-
-    public interface OnProgramClickListener {
-        void onProgramClick(Program program);
     }
 
     static class ProgramViewHolder extends RecyclerView.ViewHolder {
@@ -50,11 +43,5 @@ public class ProgramsAdapter extends RecyclerView.Adapter<ProgramsAdapter.Progra
             super(itemView);
             programName = itemView.findViewById(R.id.programName);
         }
-    }
-
-    public void updatePrograms(List<Program> newPrograms) {
-        programs.clear();
-        programs.addAll(newPrograms);
-        notifyDataSetChanged();
     }
 } 

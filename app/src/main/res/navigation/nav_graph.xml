@@ -40,7 +40,16 @@
     <fragment
         android:id="@+id/newsFragment"
         android:name="com.isp.app.ui.news.NewsFragment"
-        android:label="News" />
+        android:label="News" >
+        <action
+            android:id="@+id/action_newsFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/articleDetailFragment"
+        android:name="com.isp.app.ui.news.ArticleDetailFragment"
+        android:label="Article Detail" />
 
     <fragment
         android:id="@+id/contactsFragment"
