@@ -4,35 +4,28 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import com.isp.app.R;
-import com.isp.app.data.models.ScheduleItem;
-import java.util.Arrays;
-import java.util.List;
 
 public class ScheduleFragment extends Fragment {
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_schedule, container, false);
 
-        RecyclerView recyclerView = view.findViewById(R.id.scheduleRecyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        TextView scheduleTextView = view.findViewById(R.id.schedule_text);
 
-        // Updated data to match program names
-        List<ScheduleItem> scheduleItems = Arrays.asList(
-            new ScheduleItem("Computer Science - Algorithms", "09:00 AM - 10:00 AM"),
-            new ScheduleItem("Business Administration - Marketing", "10:30 AM - 11:30 AM"),
-            new ScheduleItem("Mechanical Engineering - Thermodynamics", "01:00 PM - 03:00 PM")
-        );
+        // Mock schedule data for Computing Systems
+        String scheduleInfo = "Schedule for Computing Systems:\n" +
+                "Monday: CS101 - 9:00 AM to 11:00 AM\n" +
+                "Tuesday: CS201 - 10:00 AM to 12:00 PM\n" +
+                "Wednesday: CS301 - 1:00 PM to 3:00 PM\n" +
+                "Thursday: CS101 Lab - 2:00 PM to 4:00 PM\n" +
+                "Friday: CS201 Lab - 11:00 AM to 1:00 PM";
 
-        ScheduleAdapter adapter = new ScheduleAdapter(scheduleItems);
-        recyclerView.setAdapter(adapter);
+        scheduleTextView.setText(scheduleInfo);
 
         return view;
     }

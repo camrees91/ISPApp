@@ -14,19 +14,107 @@
         android:layout_height="match_parent"
         tools:context=".ui.home.HomeFragment">
 
+        <!-- School Logo -->
+        <ImageView
+            android:id="@+id/school_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/ic_school_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Welcome Message -->
         <TextView
             android:id="@+id/text_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_margin="16dp"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="24sp"
+            android:textColor="@android:color/black"
             android:text="@{viewModel.text}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/school_logo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- View Programs Button -->
+        <Button
+            android:id="@+id/button_view_programs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Programs"
+            app:layout_constraintTop_toBottomOf="@id/text_home"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp" />
+
+        <!-- View Schedule Button -->
+        <Button
+            android:id="@+id/button_view_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Schedule"
+            app:layout_constraintTop_toBottomOf="@id/button_view_programs"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <!-- View Calendar Button -->
+        <Button
+            android:id="@+id/button_view_calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Calendar"
+            app:layout_constraintTop_toBottomOf="@id/button_view_schedule"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <!-- View Transit Button -->
+        <Button
+            android:id="@+id/button_view_transit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Transit"
+            app:layout_constraintTop_toBottomOf="@id/button_view_calendar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <!-- View News Button -->
+        <Button
+            android:id="@+id/button_view_news"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View News"
+            app:layout_constraintTop_toBottomOf="@id/button_view_transit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <!-- View Contacts Button -->
+        <Button
+            android:id="@+id/button_view_contacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Contacts"
+            app:layout_constraintTop_toBottomOf="@id/button_view_news"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <!-- View Info Button -->
+        <Button
+            android:id="@+id/button_view_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Info"
+            app:layout_constraintTop_toBottomOf="@id/button_view_contacts"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
