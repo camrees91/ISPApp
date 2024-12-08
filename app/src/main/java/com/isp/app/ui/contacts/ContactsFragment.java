@@ -1,6 +1,8 @@
 package com.isp.app.ui.contacts;
 
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,6 +38,18 @@ public class ContactsFragment extends Fragment {
 
         Button createContactButton = view.findViewById(R.id.createContactButton);
         createContactButton.setOnClickListener(v -> showCreateContactDialog());
+
+        Button viewLocationButton = view.findViewById(R.id.viewLocationButton);
+        viewLocationButton.setOnClickListener(v -> openMapLocation());
+
+        Button goToSiteButton = view.findViewById(R.id.goToSiteButton);
+        goToSiteButton.setOnClickListener(v -> openWebsite());
+
+        Button callContactButton = view.findViewById(R.id.callContactButton);
+        callContactButton.setOnClickListener(v -> makePhoneCall());
+
+        Button emailContactButton = view.findViewById(R.id.emailContactButton);
+        emailContactButton.setOnClickListener(v -> sendEmail());
 
         return view;
     }
@@ -65,5 +80,48 @@ public class ContactsFragment extends Fragment {
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
 
         builder.create().show();
+    }
+
+    private void openMapLocation() {
+        double latitude = 37.7749; // Replace with actual latitude
+        double longitude = -122.4194; // Replace with actual longitude
+        String label = "Contact Location";
+        String uri = String.format("geo:%f,%f?q=%f,%f(%s)", latitude, longitude, latitude, longitude, Uri.encode(label));
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+        if (intent.resolveActivity(requireActivity().getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+    private void openWebsite() {
+        String url = "https://www.cna.nl.ca/";
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        if (intent.resolveActivity(requireActivity().getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+    private void makePhoneCall() {
+        if (contacts.isEmpty()) {
+            Toast.makeText(getContext(), "No contacts available", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String phoneNumber = contacts.get(0).getPhone(); // Example: use the first contact's phone number
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumber));
+        startActivity(intent);
+    }
+
+    private void sendEmail() {
+        if (contacts.isEmpty()) {
+            Toast.makeText(getContext(), "No contacts available", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String email = contacts.get(0).getEmail(); // Example: use the first contact's email
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + email));
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
+        intent.putExtra(Intent.EXTRA_TEXT, "Body of the email");
+        if (intent.resolveActivity(requireActivity().getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 } 

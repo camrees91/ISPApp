@@ -7,7 +7,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.isp.app.R;
-import com.isp.app.data.models.ScheduleItem;
 import java.util.List;
 
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ScheduleViewHolder> {
@@ -28,8 +27,8 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Schedu
     @Override
     public void onBindViewHolder(@NonNull ScheduleViewHolder holder, int position) {
         ScheduleItem item = scheduleItems.get(position);
-        holder.scheduleTitle.setText(item.getTitle());
-        holder.scheduleTime.setText(item.getTime());
+        holder.courseNameTextView.setText(item.getCourseName());
+        holder.scheduleTimeTextView.setText(item.getScheduleTime());
     }
 
     @Override
@@ -38,13 +37,13 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Schedu
     }
 
     static class ScheduleViewHolder extends RecyclerView.ViewHolder {
-        TextView scheduleTitle;
-        TextView scheduleTime;
+        TextView courseNameTextView;
+        TextView scheduleTimeTextView;
 
-        ScheduleViewHolder(@NonNull View itemView) {
+        ScheduleViewHolder(View itemView) {
             super(itemView);
-            scheduleTitle = itemView.findViewById(R.id.scheduleTitle);
-            scheduleTime = itemView.findViewById(R.id.scheduleTime);
+            courseNameTextView = itemView.findViewById(R.id.courseName);
+            scheduleTimeTextView = itemView.findViewById(R.id.scheduleTime);
         }
     }
 } 

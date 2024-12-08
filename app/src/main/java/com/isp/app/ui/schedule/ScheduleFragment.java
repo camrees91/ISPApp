@@ -4,10 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.isp.app.R;
+import java.util.Arrays;
+import java.util.List;
 
 public class ScheduleFragment extends Fragment {
 
@@ -15,17 +18,20 @@ public class ScheduleFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_schedule, container, false);
 
-        TextView scheduleTextView = view.findViewById(R.id.schedule_text);
+        RecyclerView recyclerView = view.findViewById(R.id.scheduleRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Mock schedule data for Computing Systems
-        String scheduleInfo = "Schedule for Computing Systems:\n" +
-                "Monday: CS101 - 9:00 AM to 11:00 AM\n" +
-                "Tuesday: CS201 - 10:00 AM to 12:00 PM\n" +
-                "Wednesday: CS301 - 1:00 PM to 3:00 PM\n" +
-                "Thursday: CS101 Lab - 2:00 PM to 4:00 PM\n" +
-                "Friday: CS201 Lab - 11:00 AM to 1:00 PM";
+        List<ScheduleItem> scheduleItems = Arrays.asList(
+                new ScheduleItem("CS101: Introduction to Programming", "Monday: 9:00 AM - 11:00 AM"),
+                new ScheduleItem("CS201: Data Structures", "Tuesday: 10:00 AM - 12:00 PM"),
+                new ScheduleItem("CS301: Operating Systems", "Wednesday: 1:00 PM - 3:00 PM"),
+                new ScheduleItem("CS101 Lab", "Thursday: 2:00 PM - 4:00 PM"),
+                new ScheduleItem("CS201 Lab", "Friday: 11:00 AM - 1:00 PM")
+        );
 
-        scheduleTextView.setText(scheduleInfo);
+        ScheduleAdapter adapter = new ScheduleAdapter(scheduleItems);
+        recyclerView.setAdapter(adapter);
 
         return view;
     }
