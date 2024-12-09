@@ -1,13 +1,13 @@
 package com.isp.app.data.models;
 
 public class Contact {
-    private final String name;
-    private final String phoneNumber;
-    private final String email;
+    private String name;
+    private String phone;
+    private String email;
 
-    public Contact(String name, String phoneNumber, String email) {
+    public Contact(String name, String phone, String email) {
         this.name = name;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
         this.email = email;
     }
 
@@ -15,8 +15,8 @@ public class Contact {
         return name;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
     public String getEmail() {

@@ -4,7 +4,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.isp.app.R;
@@ -29,11 +28,9 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
     @Override
     public void onBindViewHolder(@NonNull ContactViewHolder holder, int position) {
         Contact contact = contacts.get(position);
-        holder.contactName.setText(contact.getName());
-        holder.itemView.setOnClickListener(v -> {
-            String message = "Phone: " + contact.getPhoneNumber() + "\nEmail: " + contact.getEmail();
-            Toast.makeText(holder.itemView.getContext(), message, Toast.LENGTH_SHORT).show();
-        });
+        holder.nameTextView.setText(contact.getName());
+        String message = "Phone: " + contact.getPhone() + "\nEmail: " + contact.getEmail();
+        holder.detailsTextView.setText(message);
     }
 
     @Override
@@ -42,11 +39,13 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
     }
 
     static class ContactViewHolder extends RecyclerView.ViewHolder {
-        TextView contactName;
+        TextView nameTextView;
+        TextView detailsTextView;
 
-        ContactViewHolder(@NonNull View itemView) {
+        ContactViewHolder(View itemView) {
             super(itemView);
-            contactName = itemView.findViewById(R.id.contactName);
+            nameTextView = itemView.findViewById(R.id.contactName);
+            detailsTextView = itemView.findViewById(R.id.contactDetails);
         }
     }
 } 
