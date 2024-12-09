@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.isp.app.ui.home.HomeFragment"
+        android:label="Home">
+        <action
+            android:id="@+id/action_homeFragment_to_programsFragment"
+            app:destination="@id/programsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_scheduleFragment"
+            app:destination="@id/scheduleFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_transitFragment"
+            app:destination="@id/transitFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_contactsFragment"
+            app:destination="@id/contactsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_NotesFragment"
+            app:destination="@+id/NotesFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/programsFragment"
+        android:name="com.isp.app.ui.programs.ProgramsFragment"
+        android:label="Programs">
+        <action
+            android:id="@+id/action_programsFragment_to_coursesFragment"
+            app:destination="@id/coursesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/coursesFragment"
+        android:name="com.isp.app.ui.programs.CoursesFragment"
+        android:label="Courses">
+        <argument
+            android:name="programId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.isp.app.ui.schedule.ScheduleFragment"
+        android:label="Schedule" />
+
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.isp.app.ui.calendar.CalendarFragment"
+        android:label="Calendar" />
+
+    <fragment
+        android:id="@+id/transitFragment"
+        android:name="com.isp.app.ui.transit.TransitFragment"
+        android:label="Transit" />
+
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.isp.app.ui.news.NewsFragment"
+        android:label="News" >
+        <action
+            android:id="@+id/action_newsFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/articleDetailFragment"
+        android:name="com.isp.app.ui.news.ArticleDetailFragment"
+        android:label="Article Detail" />
+
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="com.isp.app.ui.contacts.ContactsFragment"
+        android:label="Contacts" />
+
+    <fragment
+        android:id="@+id/NotesFragment"
+        android:name="com.isp.app.ui.notepad.NotesFragment"
+        android:label="Notes" />
+
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.isp.app.ui.info.InfoFragment"
+        android:label="Info" />
+</navigation> 
