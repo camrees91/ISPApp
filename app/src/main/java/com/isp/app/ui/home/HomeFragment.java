@@ -52,6 +52,9 @@ public class HomeFragment extends Fragment {
 
         binding.buttonViewInfo.setOnClickListener(v -> 
             navController.navigate(R.id.action_homeFragment_to_infoFragment));
+
+        binding.buttonViewNotes.setOnClickListener(v -> 
+            navController.navigate(R.id.action_homeFragment_to_noteFragment));
     }
 
     @Override

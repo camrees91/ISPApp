@@ -105,13 +105,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp" />
 
+        <!-- View Notes Button -->
+        <Button
+            android:id="@+id/button_view_notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Notes"
+            app:layout_constraintTop_toBottomOf="@id/button_view_contacts"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
         <!-- View Info Button -->
         <Button
             android:id="@+id/button_view_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="View Info"
-            app:layout_constraintTop_toBottomOf="@id/button_view_contacts"
+            app:layout_constraintTop_toBottomOf="@id/button_view_notes"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp" />

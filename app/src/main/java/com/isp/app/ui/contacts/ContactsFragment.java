@@ -83,8 +83,9 @@ public class ContactsFragment extends Fragment {
     }
 
     private void openMapLocation() {
-        double latitude = 37.7749; // Replace with actual latitude
-        double longitude = -122.4194; // Replace with actual longitude
+        //Scranton, PA coordinates
+        double latitude = 41.4106; // 41°24′38″N
+        double longitude = -75.6675; // 75°40′03″W
         String label = "Contact Location";
         String uri = String.format("geo:%f,%f?q=%f,%f(%s)", latitude, longitude, latitude, longitude, Uri.encode(label));
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
