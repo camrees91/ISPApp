@@ -2,7 +2,6 @@ package com.isp.app.ui.notepad;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,9 +38,7 @@ public class NotesFragment extends Fragment {
         listViewNotes = root.findViewById(R.id.listViewNotes);
 
         notesDatabase = new NotesDatabase(requireContext());
-        notesDatabase.insertNote("Sample Note");
         List<Note> allNotes = notesDatabase.getAllNotes();
-        Log.d("NotesFragment", "Number of notes retrieved: " + allNotes.size());
         notesAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, allNotes);
         listViewNotes.setAdapter(notesAdapter);
 

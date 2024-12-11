@@ -97,8 +97,15 @@ public class ContactsFragment extends Fragment {
     private void openWebsite() {
         String url = "https://www.cna.nl.ca/";
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+
+        // Using createChooser to give users the option to choose their browser
+        Intent chooser = Intent.createChooser(intent, "Open with");
+
         if (intent.resolveActivity(requireActivity().getPackageManager()) != null) {
-            startActivity(intent);
+            startActivity(chooser); // Show chooser dialog if an app can handle the intent
+        } else {
+            // Show error if no browser is available
+            Toast.makeText(getContext(), "No browser available to open the link", Toast.LENGTH_SHORT).show();
         }
     }
 
